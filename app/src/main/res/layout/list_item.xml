@@ -12,7 +12,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/sportsImage"
+            android:id="@+id/datasImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:adjustViewBounds="true" />
@@ -28,7 +28,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:padding="@dimen/card_margin"
-            android:text="@string/sports_info_placeholder"
+            android:text="@string/datas_info_placeholder"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.039"
@@ -41,7 +41,7 @@
             style="@style/TextAppearance.AppCompat.Headline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@id/sportsImage"
+            android:layout_alignBottom="@id/datasImage"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"

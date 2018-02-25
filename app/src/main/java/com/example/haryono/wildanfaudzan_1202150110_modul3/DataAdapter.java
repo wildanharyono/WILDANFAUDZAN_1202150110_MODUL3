@@ -21,20 +21,20 @@ import java.util.ArrayList;
  * Created by haryono on 2/25/2018.
  */
 
-class DataAdapter extends RecyclerView.Adapter<DataAdapter.SportsViewHolder>  {
+class DataAdapter extends RecyclerView.Adapter<DataAdapter.dataViewHolder>  {
 
     //Member variables
     private GradientDrawable mGradientDrawable;
-    private ArrayList<Data> mSportsData;
+    private ArrayList<Data> mData;
     private Context mContext;
 
     /**
      * Constructor that passes in the sports data and the context
-     * @param sportsData ArrayList containing the sports data
-     * @param context Context of the application
+     * @param Datas ArrayList containing the sports data
+     * @param context Context of the applicationa
      */
-    DataAdapter(Context context, ArrayList<Data> sportsData) {
-        this.mSportsData = sportsData;
+    DataAdapter(Context context, ArrayList<Data> Datas) {
+        this.mData = Datas;
         this.mContext = context;
 
         //Prepare gray placeholder
@@ -58,8 +58,8 @@ class DataAdapter extends RecyclerView.Adapter<DataAdapter.SportsViewHolder>  {
      * @return The newly create SportsViewHolder.
      */
     @Override
-    public SportsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new SportsViewHolder(mContext, LayoutInflater.from(mContext).
+    public dataViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new dataViewHolder(mContext, LayoutInflater.from(mContext).
                 inflate(R.layout.list_item, parent, false), mGradientDrawable);
     }
 
@@ -69,13 +69,13 @@ class DataAdapter extends RecyclerView.Adapter<DataAdapter.SportsViewHolder>  {
      * @param position The adapter position.
      */
     @Override
-    public void onBindViewHolder(SportsViewHolder holder, int position) {
+    public void onBindViewHolder(dataViewHolder holder, int position) {
 
         //Get the current sport
-        Data currentSport = mSportsData.get(position);
+        Data currentData = mData.get(position);
 
         //Bind the data to the views
-        holder.bindTo(currentSport);
+        holder.bindTo(currentData);
 
     }
 
@@ -86,35 +86,35 @@ class DataAdapter extends RecyclerView.Adapter<DataAdapter.SportsViewHolder>  {
      */
     @Override
     public int getItemCount() {
-        return mSportsData.size();
+        return mData.size();
     }
 
 
     /**
      * SportsViewHolder class that represents each row of data in the RecyclerView
      */
-    static class SportsViewHolder extends RecyclerView.ViewHolder
+    static class dataViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
         //Member Variables for the holder data
         private TextView mTitleText;
         private TextView mInfoText;
-        private ImageView mSportsImage;
+        private ImageView mDatassImage;
         private Context mContext;
-        private Data mCurrentSport;
+        private Data mCurrentData;
         private GradientDrawable mGradientDrawable;
 
         /**
          * Constructor for the SportsViewHolder, used in onCreateViewHolder().
          * @param itemView The rootview of the list_item.xml layout file
          */
-        SportsViewHolder(Context context, View itemView, GradientDrawable gradientDrawable) {
+        dataViewHolder(Context context, View itemView, GradientDrawable gradientDrawable) {
             super(itemView);
 
             //Initialize the views
             mTitleText = (TextView)itemView.findViewById(R.id.title);
             mInfoText = (TextView)itemView.findViewById(R.id.subTitle);
-            mSportsImage = (ImageView)itemView.findViewById(R.id.sportsImage);
+            mDatassImage = (ImageView)itemView.findViewById(R.id.datasImage);
 
             mContext = context;
             mGradientDrawable = gradientDrawable;
@@ -123,27 +123,27 @@ class DataAdapter extends RecyclerView.Adapter<DataAdapter.SportsViewHolder>  {
             itemView.setOnClickListener(this);
         }
 
-        void bindTo(Data currentSport){
+        void bindTo(Data currentData){
             //Populate the textviews with data
-            mTitleText.setText(currentSport.getTitle());
-            mInfoText.setText(currentSport.getInfo());
+            mTitleText.setText(currentData.getTitle());
+            mInfoText.setText(currentData.getInfo());
 
             //Get the current sport
-            mCurrentSport = currentSport;
+            mCurrentData = currentData;
 
 
 
             //Load the images into the ImageView using the Glide library
-            Glide.with(mContext).load(currentSport.
-                    getImageResource()).placeholder(mGradientDrawable).into(mSportsImage);
+            Glide.with(mContext).load(currentData.
+                    getImageResource()).placeholder(mGradientDrawable).into(mDatassImage);
         }
 
         @Override
         public void onClick(View view) {
 
             //Set up the detail intent
-            Intent detailIntent = Data.starter(mContext, mCurrentSport.getTitle(),
-                    mCurrentSport.getImageResource());
+            Intent detailIntent = Data.starter(mContext, mCurrentData.getTitle(),
+                    mCurrentData.getImageResource());
 
 
             //Start the detail activity

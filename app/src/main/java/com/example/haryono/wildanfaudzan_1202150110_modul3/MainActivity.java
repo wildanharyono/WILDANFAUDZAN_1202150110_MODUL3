@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Member variables
     private RecyclerView mRecyclerView;
-    private ArrayList<Data> mSportsData;
+    private ArrayList<Data> mData;
     private DataAdapter mAdapter;
 
     @Override
@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Initialize the ArrayList that will contain the data
-        mSportsData = new ArrayList<>();
+        mData = new ArrayList<>();
 
         //Initialize the adapter and set it ot the RecyclerView
-        mAdapter = new DataAdapter(this, mSportsData);
+        mAdapter = new DataAdapter(this, mData);
         mRecyclerView.setAdapter(mAdapter);
 
         //Ubah LinearLayoutManager ke GridLayoutManager, dengan meneruskan konteks dan integer yang baru dibuat:
@@ -54,17 +54,17 @@ public class MainActivity extends AppCompatActivity {
      */
     private void initializeData() {
         //Get the resources from the XML file
-        String[] sportsList = getResources().getStringArray(R.array.sports_titles);
-        String[] sportsInfo = getResources().getStringArray(R.array.sports_info);
-        TypedArray sportsImageResources = getResources().obtainTypedArray(R.array.sports_images);
+        String[] dataList = getResources().getStringArray(R.array.datas_titles);
+        String[] dataInfo = getResources().getStringArray(R.array.datas_info);
+        TypedArray sportsImageResources = getResources().obtainTypedArray(R.array.datas_images);
         //Clear the existing data (to avoid duplication)
-        mSportsData.clear();
+        mData.clear();
 
 
         //Create the ArrayList of Sports objects with the titles, images
         // and information about each sport
-        for(int i=0; i<sportsList.length; i++){
-            mSportsData.add(new Data(sportsList[i], sportsInfo[i],
+        for(int i=0; i<dataList.length; i++){
+            mData.add(new Data(dataList[i], dataInfo[i],
                     sportsImageResources.getResourceId(i,0)));
         }
 

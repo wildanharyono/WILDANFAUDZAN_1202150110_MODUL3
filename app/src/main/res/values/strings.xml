@@ -2,8 +2,8 @@
     <string name="app_name">wildanfaudzan_1202150110_modul3</string>
     <string name="title_placeholder">Title</string>
     <string name="news_label">News</string>
-    <string name="sports_info_placeholder">Here is some news</string>
-    <string name="sports_image">Sports Image</string>
+    <string name="datas_info_placeholder">Here is some news</string>
+    <string name="datas_image">Sports Image</string>
     <string name="filler_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
         vitae semper quam. In a metus ut nisl pharetra hendrerit et a leo. Curabitur nec sapien
         odio. Vestibulum a mollis felis. Cras molestie felis nibh, ut maximus mauris feugiat
@@ -12,7 +12,7 @@
         molestie lorem. Suspendisse at purus mauris. Proin nibh ligula, suscipit vel pharetra
         posuere, bibendum id lorem.</string>
 
-    <string-array name="sports_titles">
+    <string-array name="datas_titles">
         <item>ades</item>
         <item>amidis</item>
         <item>aqua</item>
@@ -26,7 +26,7 @@
         <item>vit</item>
     </string-array>
 
-    <string-array name="sports_info">
+    <string-array name="datas_info">
         <item>ini adalah ari mineral ades</item>
         <item>ini adalah ari mineral amidis</item>
         <item>ini adalah ari mineral aqua</item>
@@ -40,7 +40,7 @@
         <item>ini adalah ari mineral vit</item>
     </string-array>
 
-    <array name="sports_images">
+    <array name="datas_images">
         <item>@drawable/ades</item>
         <item>@drawable/amidis</item>
         <item>@drawable/aqua</item>

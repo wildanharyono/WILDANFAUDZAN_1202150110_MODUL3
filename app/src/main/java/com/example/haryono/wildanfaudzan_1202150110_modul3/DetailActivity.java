@@ -29,8 +29,8 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         //Initialize the views
-        TextView sportsTitle = (TextView)findViewById(R.id.titleDetail);
-        ImageView sportsImage = (ImageView)findViewById(R.id.sportsImageDetail);
+        TextView datasTitle = (TextView)findViewById(R.id.titleDetail);
+        ImageView datasImage = (ImageView)findViewById(R.id.datasImageDetail);
 
         //Get the drawable
         Drawable drawable = ContextCompat.getDrawable
@@ -46,11 +46,11 @@ public class DetailActivity extends AppCompatActivity {
         }
 
         //Set the text from the Intent extra
-        sportsTitle.setText(getIntent().getStringExtra(Data.TITLE_KEY));
+        datasTitle.setText(getIntent().getStringExtra(Data.TITLE_KEY));
 
         //Load the image using the glide library and the Intent extra
         Glide.with(this).load(getIntent().getIntExtra(Data.IMAGE_KEY,0))
-                .placeholder(gradientDrawable).into(sportsImage);
+                .placeholder(gradientDrawable).into(datasImage);
 
         plus = findViewById(R.id.plus);
         minus = findViewById(R.id.minus);
@@ -99,7 +99,7 @@ public class DetailActivity extends AppCompatActivity {
 
     public void minus(View view) {
         values--;
-        if (value == null) {
+        if (value != null) {
             switch (values) {
                 case 1:
                     imgBattery.setImageResource(R.drawable.ic_battery_20);
